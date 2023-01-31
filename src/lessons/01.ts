@@ -8,6 +8,7 @@ export function mult(a: number, b: number) {
 }
 
 export function split(str: string) {
-    return str.toLowerCase().match(/\w+/gm);
+    let result = str.toLowerCase().match(/\w+/gm);
+    return result ? result : [];
 }
 
