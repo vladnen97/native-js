@@ -52,7 +52,6 @@ test("split should return only words", () => {
     let result1 = split(a);
     let result2 = split(b);
     let result3 = split(c);
-    console.log(result1);
 
     //expect result
     expect(result1.length).toBe(3);
