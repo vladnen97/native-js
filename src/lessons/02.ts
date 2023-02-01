@@ -5,23 +5,24 @@ export type CityType = {
     citizensNumber: number
 }
 
-type GovernmentBuildingType = {
+export type GovernmentBuildingType = {
     type: string
     budget: number
     staffCount: number
     address: AddressType
 }
 
-type HousesType = {
+export type HousesType = {
+    id: number
     buildedAt: number
     repaired: boolean
     address: AddressType
 }
-type AddressType = {
+export type AddressType = {
     number?: number
     street: StreetType
 }
-type StreetType = {
+export type StreetType = {
     title: string
 }
 
