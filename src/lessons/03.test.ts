@@ -1,5 +1,5 @@
 import {CityType} from "./02";
-import {addMoneyToBudget, repairHouse, toFireStaff, toHireStaff} from "./03";
+import {addMoneyToBudget, demolishHousesOnTheStreet, repairHouse, toFireStaff, toHireStaff} from "./03";
 
 let city: CityType;
 
@@ -72,12 +72,12 @@ test('Budget should be for changed for HOSPITAL', () => {
     addMoneyToBudget(city.governmentBuildings[0], 100000);
     expect(city.governmentBuildings[0].budget).toBe(300000);
 });
-// 02. Тесты должны пройти
+
+// 02. Создайте в отдельном файле функцию, чтобы тесты прошли
 test('Budget should be changed for FIRE-STATION', () => {
     addMoneyToBudget(city.governmentBuildings[1], -100000);
     expect(city.governmentBuildings[1].budget).toBe(400000);
 });
-
 
 // 03. Создайте в том же файле ещё одну функцию, чтобы тесты прошли
 test('House should be repaired', () => {
@@ -85,16 +85,24 @@ test('House should be repaired', () => {
     expect(city.houses[1].repaired).toBeTruthy();
 });
 
-
 // 04. Создайте в том же файле еще одну функцию, чтобы тесты прошли
 test('Staff should be reduced', () => {
     toFireStaff(city.governmentBuildings[0], 20);
 
     expect(city.governmentBuildings[0].staffCount).toBe(180);
 });
+
 // 05. Создайте в том же файле еще одну функцию, чтобы тесты прошли
 test('Staff should be increased', () => {
     toHireStaff(city.governmentBuildings[0], 20);
 
     expect(city.governmentBuildings[0].staffCount).toBe(220);
 });
+
+//06. Создайте в том же файле еще одну функцию, чтобы тесты прошли
+test("Houses should be destroed", () => {
+    demolishHousesOnTheStreet(city, 'Happy street');
+
+    expect(city.houses.length).toBe(1);
+    expect(city.houses[0].id).toBe(1);
+})
