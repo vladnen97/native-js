@@ -57,3 +57,24 @@ test('value type reference test', () => {
     expect(usersCount).toBe(100);
 
 })
+
+test('reference type test 2.0', () => {
+    let user = {
+        name: 'dima',
+        age: 32,
+        address: {
+            title: 'Moscow'
+        }
+    }
+    let addr = user.address
+    let user2 = {
+        name: 'natasha',
+        age: 30,
+        address: addr
+    }
+
+    user2.address.title = 'canaras';
+
+    expect(user.address.title).toBe('canaras')
+    expect(user2.address.title).toBe('canaras')
+})
