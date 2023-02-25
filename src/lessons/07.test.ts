@@ -23,3 +23,27 @@ test('reference type test', () => {
 
     expect(user.age).toBe(1000);
 })
+
+
+test('array test', () => {
+    const users = [
+        {
+            name: 'dima',
+            age: 32
+        },
+        {
+            name: 'misha',
+            age: 32
+        },
+        {
+            name: 'masha',
+            age: 32
+        },
+    ]
+
+    const admins = users;
+    admins.push({name: 'vasya', age: 10})
+
+    expect(users.length).toBe(4)
+    expect(users[3]).toEqual({name: 'vasya', age: 10})
+})
