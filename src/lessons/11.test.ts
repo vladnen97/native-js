@@ -105,4 +105,13 @@ test('Nick женился.', () => {
     expect(studentsWithMarriedNick[2].isMarried).toBe(true)
 })
 
+test('Студентка по имени Ann', () => {
+
+    const studentAnn = studentsArray2.find(el => el.name === 'Ann')
+
+    expect(studentAnn).toBe(studentsArray2[5])
+    expect(studentAnn).toEqual(studentsArray2[5])
+    expect(studentAnn?.name).toBe('Ann')
+})
+
 
