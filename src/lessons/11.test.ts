@@ -122,4 +122,17 @@ test('Студент с самым высоким баллом', () => {
     expect(highScoreStudent.scores).toBe(120)
 })
 
+test('2 студента с самым высоким баллом', () => {
+
+    const twoHighScoreStudents = [...studentsArray2].sort((a, b) => b.scores - a.scores).slice(0,2)
+
+    expect(twoHighScoreStudents.length).toBe(2)
+    expect(twoHighScoreStudents[0]).toEqual(studentsArray2[2])
+    expect(twoHighScoreStudents[1]).toEqual(studentsArray2[4])
+    expect(twoHighScoreStudents[0].scores).toBe(120)
+    expect(twoHighScoreStudents[1].scores).toBe(110)
+})
+
+
+
 
