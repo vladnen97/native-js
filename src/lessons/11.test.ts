@@ -49,14 +49,14 @@ beforeEach(() => {
     ];
 })
 
-test('Сформируйте массив студентов, у которых 100 и более баллов', () => {
+test('массив студентов, у которых 100 и более баллов', () => {
 
     const moreThen100 = studentsArray2.filter(el => el.scores >= 100)
 
     expect(moreThen100.length).toBe(4)
 })
 
-test('Сформируйте массив холостых студентов', () => {
+test('массив холостых студентов', () => {
 
     const notMarried = studentsArray2.filter(el => !el.isMarried)
 
@@ -67,12 +67,21 @@ test('Сформируйте массив холостых студентов', 
     expect(notMarried[3].isMarried).toBe(false)
 })
 
-test('Сформируйте массив имён студентов', () => {
+test('массив имён студентов', () => {
 
     const studentsNames = studentsArray2.map(el => el.name)
 
     expect(studentsNames.length).toBe(6)
     expect(studentsNames).toEqual(['Bob', 'Alex', 'Nick', 'John', 'Helen', 'Ann'])
+})
+
+test('строку из имён студентов, разделённых \' \'/\', \'', () => {
+
+    const stringNamesBySpace = studentsArray2.map(el => el.name).join(' ')
+    const stringNamesByZapyataya = studentsArray2.map(el => el.name).join(', ')
+
+    expect(stringNamesBySpace).toBe('Bob Alex Nick John Helen Ann')
+    expect(stringNamesByZapyataya).toBe('Bob, Alex, Nick, John, Helen, Ann')
 })
 
 
