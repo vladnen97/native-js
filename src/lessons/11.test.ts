@@ -1,3 +1,5 @@
+import {addFriends} from './11';
+
 type studentType = {
     name: string
     age: number
@@ -131,6 +133,35 @@ test('2 студента с самым высоким баллом', () => {
     expect(twoHighScoreStudents[1]).toEqual(studentsArray2[4])
     expect(twoHighScoreStudents[0].scores).toBe(120)
     expect(twoHighScoreStudents[1].scores).toBe(110)
+})
+
+test('Cуммa баллов всех студентов', () => {
+
+    const sumStudentsScore =  studentsArray2.reduce((acc, el) => acc + el.scores, 0)
+
+    expect(sumStudentsScore).toBe(610)
+})
+
+test('функция должна вернуть новый массив с объектами у которых появилось свойство friends из всех имен в массиве кроме собственного ', () => {
+
+    const studentsWithFriends = addFriends(studentsArray2)
+
+    expect(studentsWithFriends.length).toBe(6)
+    expect(studentsWithFriends).not.toEqual(studentsArray2)
+
+    expect(studentsWithFriends[0]).not.toEqual(studentsArray2[0])
+    expect(studentsWithFriends[1]).not.toEqual(studentsArray2[1])
+    expect(studentsWithFriends[2]).not.toEqual(studentsArray2[2])
+    expect(studentsWithFriends[3]).not.toEqual(studentsArray2[3])
+    expect(studentsWithFriends[4]).not.toEqual(studentsArray2[4])
+    expect(studentsWithFriends[5]).not.toEqual(studentsArray2[5])
+
+    expect(studentsWithFriends[0].friends).toEqual(['Alex', 'Nick', 'John', 'Helen', 'Ann'])
+    expect(studentsWithFriends[1].friends).toEqual(['Bob', 'Nick', 'John', 'Helen', 'Ann'])
+    expect(studentsWithFriends[2].friends).toEqual(['Bob', 'Alex', 'John', 'Helen', 'Ann'])
+    expect(studentsWithFriends[3].friends).toEqual(['Bob', 'Alex', 'Nick', 'Helen', 'Ann'])
+    expect(studentsWithFriends[4].friends).toEqual(['Bob', 'Alex', 'Nick', 'John', 'Ann'])
+    expect(studentsWithFriends[5].friends).toEqual(['Bob', 'Alex', 'Nick', 'John', 'Helen'])
 })
 
 
