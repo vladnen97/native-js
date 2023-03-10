@@ -75,13 +75,26 @@ test('массив имён студентов', () => {
     expect(studentsNames).toEqual(['Bob', 'Alex', 'Nick', 'John', 'Helen', 'Ann'])
 })
 
-test('строку из имён студентов, разделённых \' \'/\', \'', () => {
+test('строка из имён студентов, разделённых \' \'/\', \'', () => {
 
     const stringNamesBySpace = studentsArray2.map(el => el.name).join(' ')
     const stringNamesByZapyataya = studentsArray2.map(el => el.name).join(', ')
 
     expect(stringNamesBySpace).toBe('Bob Alex Nick John Helen Ann')
     expect(stringNamesByZapyataya).toBe('Bob, Alex, Nick, John, Helen, Ann')
+})
+
+test('студенты со свойством "isStudent" значением true', () => {
+
+    const trueStudents = studentsArray2.map(el => ({...el, isStudent: true}))
+
+    expect(trueStudents.length).toBe(6)
+    expect(trueStudents[0].isStudent).toBe(true)
+    expect(trueStudents[1].isStudent).toBe(true)
+    expect(trueStudents[2].isStudent).toBe(true)
+    expect(trueStudents[3].isStudent).toBe(true)
+    expect(trueStudents[4].isStudent).toBe(true)
+    expect(trueStudents[5].isStudent).toBe(true)
 })
 
 
