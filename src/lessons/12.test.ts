@@ -1,4 +1,4 @@
-import {checkStart, getMinLengthWord, repeatString, setUpperCase, truncateString} from './12';
+import {checkStart, getMinLengthWord, isIncludes, repeatString, setUpperCase, truncateString} from './12';
 
 
 test('должна вернуть сроку, состоящую из указанного количества повторов подстроки с использованием разделителя. ', () => {
@@ -65,4 +65,19 @@ test('возвращает то же предложение, где все сл�
 
     expect(str1).toBe('Всем Студентам Инкубатора Желаю Удачи!');
     expect(str2).toBe('Если Бы Текст Был На Английском Регулярка Была Бы Проще');
+})
+
+test('символы подстроки содержаться в стороке - возвращает true, если нет  возвращает false. Учитывать повтор символов в подстроке.', () => {
+
+    const isInclude1: boolean = isIncludes("Incubator", "Cut")
+    const isInclude2: boolean = isIncludes("Incubator", "table")
+    const isInclude3: boolean = isIncludes("Incubator", "inbba")
+    const isInclude4: boolean = isIncludes("Incubator", "inba")
+    const isInclude5: boolean = isIncludes("Incubator", "Incubatorrr")
+
+    expect(isInclude1).toBe(true)
+    expect(isInclude2).toBe(false)
+    expect(isInclude3).toBe(false)
+    expect(isInclude4).toBe(true)
+    expect(isInclude5).toBe(false)
 })
