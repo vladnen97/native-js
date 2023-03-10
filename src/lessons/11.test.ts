@@ -67,4 +67,12 @@ test('Сформируйте массив холостых студентов', 
     expect(notMarried[3].isMarried).toBe(false)
 })
 
+test('Сформируйте массив имён студентов', () => {
+
+    const studentsNames = studentsArray2.map(el => el.name)
+
+    expect(studentsNames.length).toBe(6)
+    expect(studentsNames).toEqual(['Bob', 'Alex', 'Nick', 'John', 'Helen', 'Ann'])
+})
+
 
