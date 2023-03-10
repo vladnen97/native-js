@@ -1,4 +1,4 @@
-import {checkStart, repeatString, truncateString} from './12';
+import {checkStart, getMinLengthWord, repeatString, truncateString} from './12';
 
 
 test('должна вернуть сроку, состоящую из указанного количества повторов подстроки с использованием разделителя. ', () => {
@@ -43,5 +43,17 @@ test('возвращает строку из параметров, обреза�
     expect(shortStr3).toBe("Все...")
     expect(shortStr4).toBe("Всем студентам ...")
     expect(shortStr5).toBe("Всем ст...")
+
+})
+
+test('возвращает самое короткое слово в предложении, если в параметрах пустая строка, то возвращает null.', () => {
+
+    const shortestStr1: string | null = getMinLengthWord("Всем студентам инкубатора желаю удачи!")
+    const shortestStr3: string | null = getMinLengthWord("Найти одно самое коротко слово тут")
+    const shortestStr2: string | null = getMinLengthWord("")
+
+    expect(shortestStr1).toBe('Всем')
+    expect(shortestStr2).toBe(null)
+    expect(shortestStr3).toBe('тут')
 
 })
