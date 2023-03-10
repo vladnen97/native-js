@@ -1,3 +1,4 @@
+
 type studentType = {
     name: string
     age: number
@@ -53,5 +54,17 @@ test('Сформируйте массив студентов, у которых 
     const moreThen100 = studentsArray2.filter(el => el.scores >= 100)
 
     expect(moreThen100.length).toBe(4)
-
 })
+
+test('Сформируйте массив холостых студентов', () => {
+
+    const notMarried = studentsArray2.filter(el => !el.isMarried)
+
+    expect(notMarried.length).toBe(4)
+    expect(notMarried[0].isMarried).toBe(false)
+    expect(notMarried[1].isMarried).toBe(false)
+    expect(notMarried[2].isMarried).toBe(false)
+    expect(notMarried[3].isMarried).toBe(false)
+})
+
+
