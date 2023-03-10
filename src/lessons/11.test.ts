@@ -1,4 +1,3 @@
-
 type studentType = {
     name: string
     age: number
@@ -95,6 +94,15 @@ test('студенты со свойством "isStudent" значением tr
     expect(trueStudents[3].isStudent).toBe(true)
     expect(trueStudents[4].isStudent).toBe(true)
     expect(trueStudents[5].isStudent).toBe(true)
+})
+
+test('Nick женился.', () => {
+
+    const studentsWithMarriedNick = studentsArray2.map(el => el.name === 'Nick' ? {...el, isMarried: true} : el)
+
+    expect(studentsWithMarriedNick.length).toBe(6)
+    expect(studentsArray2[2].isMarried).toBe(false)
+    expect(studentsWithMarriedNick[2].isMarried).toBe(true)
 })
 
 
