@@ -114,4 +114,12 @@ test('Студентка по имени Ann', () => {
     expect(studentAnn?.name).toBe('Ann')
 })
 
+test('Студент с самым высоким баллом', () => {
+
+    const highScoreStudent = studentsArray2.reduce((acc, el) => acc.scores > el.scores ? acc : el)
+
+    expect(highScoreStudent).toEqual(studentsArray2[2])
+    expect(highScoreStudent.scores).toBe(120)
+})
+
 
