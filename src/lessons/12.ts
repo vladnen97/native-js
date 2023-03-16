@@ -71,7 +71,7 @@ export function isIncludes(str: string, subStr: string): boolean {
     // }
 
     for (let i = 0; i < subStr.length; i++) {
-        if (str.indexOf(subStr[i]) === -1) {
+        if (!str.includes(subStr[i])) {
             return false;
         }
         str = str.slice(0,i) + str.slice(i+1)
