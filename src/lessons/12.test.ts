@@ -16,7 +16,7 @@ test('должна вернуть сроку, состоящую из указа
 test('возвращает true, если строка начинается с указанной подстроки, в противном случае - false. Регистр не учитывается.', () => {
 
     const checked1:boolean = checkStart("Incubator", "inc")
-    const checked2:boolean = checkStart("JavaScript", "jav")
+    const checked2:boolean = checkStart("javaScript", "Jav")
     const checked3:boolean = checkStart("JavaScript", "scr")
     const checked4:boolean = checkStart("Incubator", "yo")
     const checked5:boolean = checkStart("JavaScript", "jva")

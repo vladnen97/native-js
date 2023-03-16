@@ -18,7 +18,7 @@ export function repeatString(word: string, times: number, devider: string): stri
 // str.startWith() slice indexOF
 
 export function checkStart(str: string, subStr: string): boolean {
-    return new RegExp(`^${subStr}`).test(str.toLowerCase())
+    return new RegExp(`^${subStr}`, 'i').test(str)
 }
 
 
@@ -26,7 +26,7 @@ export function checkStart(str: string, subStr: string): boolean {
 //truncateString("Всем студентам инкубатора желаю удачи!", 10) => "Всем студе..."
 
 export function truncateString(str: string, maxLength: number): string {
-    // return str.match(new RegExp(`\.{0,${maxLength}}`)) + '...'
+    // return str.match(new RegExp(`.{0,${maxLength}}`)) + '...'
 
     return str.length > maxLength ? str.slice(0, maxLength) + "..." : str;
 
@@ -62,30 +62,23 @@ export function setUpperCase(str: string): string {
 //* попробовать учитывать повтор символов в подстроке
 
 export function isIncludes(str: string, subStr: string): boolean {
-    const array: Array<string> = subStr.toLowerCase().split('')
-    // for (let i = 0; i < array.length; i++) {
-    //     if (!str.toLowerCase().includes(array[i])) {
+    subStr = subStr.toLowerCase()
+    str = str.toLowerCase()
+    // for (let i = 0; i < subStr.length; i++) {
+    //     if (!str.includes(subStr[i])) {
     //         return false
     //     }
     // }
 
-    for (let i = 0; i < array.length; i++) {
-        const index = str.toLowerCase().indexOf(array[i])
-        if (index === -1) {
+    for (let i = 0; i < subStr.length; i++) {
+        if (str.indexOf(subStr[i]) === -1) {
             return false;
         }
         str = str.slice(0,i) + str.slice(i+1)
     }
 
     return true;
-
 }
-
-// isIncludes("Incubator", "Cut") => true
-// isIncludes("Incubator", "table") => false
-// isIncludes("Incubator", "inbba") => true
-// isIncludes("Incubator", "inba") => true
-// isIncludes("Incubator", "Incubatorrr")=> true
 
 
 
